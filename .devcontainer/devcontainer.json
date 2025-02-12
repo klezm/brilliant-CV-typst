@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/rust
+{
+	"name": "Typst",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/rust:1-bookworm",
+	// "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+	// "image": "ghcr.io/typst/typst:latest",
+
+	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
+	// "mounts": [
+	// 	{
+	// 		"source": "devcontainer-cargo-cache-${devcontainerId}",
+	// 		"target": "/usr/local/cargo",
+	// 		"type": "volume"
+	// 	}
+	// ]
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		// "ghcr.io/devcontainers/features/github-cli:1": {},
+		// "ghcr.io/devcontainers/features/python:1": {},
+		// "ghcr.io/devcontainers/features/rust:1": {},
+		// "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+		// "ghcr.io/michidk/devcontainers-features/typst:1": {},
+		// "ghcr.io/devcontainers-extra/features/act-asdf:2": {},
+		// "ghcr.io/devcontainers-extra/features/pandoc:1": {},
+		// "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
+		"ghcr.io/devcontainers-extra/features/typst:1": {
+			// "version": "0.12.0"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "rustc --version",
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"myriad-dreamin.tinymist" // https://github.com/Myriad-Dreamin/tinymist
+			]
+		}
+	}
+
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
