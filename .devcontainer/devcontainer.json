@@ -35,15 +35,21 @@
 		// "ghcr.io/devcontainers-extra/features/gh-release:1": {
 		// 	// "repo": "FortAwesome/Font-Awesome",
 		// 	// "assetRegex": "fontawesome.*free.*desktop.*zip"
-		// 	"repo": "adobe-fonts/source-sans",
-		// 	"assetRegex": "*TTF*.zip",
-		// 	"binLocation": "~/.fonts"
-		// },
+		// 	// "repo": "adobe-fonts/source-sans",
+		// 	// "assetRegex": "*TTF*.zip",
+		// 	// "binLocation": "~/.fonts"
+		// 	"repo": "typst/typst",
+		// 	"binaryNames": "typst",
+		// 	// "version": "latest",
+		// 	"assetRegex": ".*x86.*linux.*", // architecture: uname -m
+		// 	// "binLocation": "~/typst"
+		// 	// "libLocation": "~/typst"
+		// }
 		// "ghcr.io/devcontainers-extra/features/pandoc:1": {},
 		// "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
-		"ghcr.io/devcontainers-extra/features/typst:1": {
-			// "version": "0.12.0"
-		}
+		"ghcr.io/devcontainers-extra/features/typst:1": {}
+		// 	// "version": "0.12.0"
+		// }
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -60,11 +66,17 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"myriad-dreamin.tinymist" // https://github.com/Myriad-Dreamin/tinymist
+				"myriad-dreamin.tinymist",
+				"GitHub.copilot-chat"
 			]
 		}
-	}
+	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
+
+	// "containerEnv": {
+	"remoteEnv": {
+		"PATH": "${containerWorkspaceFolder}/typst:${PATH}"
+	}
 }

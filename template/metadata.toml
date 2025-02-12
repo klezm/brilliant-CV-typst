@@ -1,3 +1,4 @@
+# https://typst.app/universe/package/brilliant-cv
 #:schema https://raw.githubusercontent.com/mintyfrankie/brilliant-CV/main/metadata.toml.schema.json
 
 # Set the output language
@@ -17,8 +18,17 @@ language = "en"
     # Optional: sets paper size and margins. Possible values: a4 (default), us-letter
     paper_size = "a4"
 
+    footer = false
+
+    [layout.color]
+        highlight_sections = true
+        highlight_section_hr = true
+        highlight_section_letter_count = 99
+        highlight_header_info = false
+        # highlight_header_quote = true
+
     [layout.fonts]
-        regular_fonts = ["Source Sans Pro", "Source Sans 3"]
+        regular_fonts = ["Source Sans 3"]
         header_font = "Roboto"
 
     [layout.header]
@@ -27,6 +37,8 @@ language = "en"
 
         # Decide if you want to display profile photo or not
         display_profile_photo = true
+        photo_height = "13%" # "2cm" "auto"
+        photo_right = false
 
     [layout.entry]
         # Decide if you want to put your company in bold or your position in bold
@@ -59,11 +71,11 @@ language = "en"
         # orcid = "0000-0000-0000-0000"
         # researchgate = "John-Doe"
         # extraInfo = "I am a cool kid"
-        [personal.info.custom-1]
-            # image = "" # Example: image("./path/to/image.png")
-            awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
-            text = "PhD"
-            link = "https://www.example.com"
+        # [personal.info.custom-1]
+        #     # image = "./src/avatar.png" # Example: image("./path/to/image.png")
+        #     awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
+        #     text = "PhD"
+        #     link = "https://www.example.com"
 
 # add a new section if you want to include the language of your choice
 # i.e. [[lang.ru]]
