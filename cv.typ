@@ -61,10 +61,14 @@
     text(font: headerFont, size: 32pt, weight: "bold", str)
   }
   let headerInfoStyle(str) = {
-    text(size: 10pt, fill: accentColor, str)
+      text(
+        size: 8pt,
+        ..(if metadata.layout.color.at("highlight_header_info", default: false) {(fill: accentColor)}),
+        str,
+      )
   }
   let headerQuoteStyle(str) = {
-    text(size: 10pt, weight: "medium", style: "italic", fill: accentColor, str)
+    text(size: 10pt, weight: "medium", style: "italic", ..(if metadata.layout.color.at("highlight_header_quote", default: false) {(fill: accentColor)}), str)
   }
 
   // Components
@@ -97,6 +101,7 @@
         let icon = ""
         if img != "" {
           icon = img.with(width: 10pt)
+          // icon = image(img).with(width: 10pt)
         } else {
           icon = fa-icon(awesomeIcon)
         }
@@ -140,18 +145,20 @@
 
   let makeHeaderNameSection() = table(
     columns: 1fr,
-    inset: 0pt,
+    // inset: 0pt,
     stroke: none,
-    row-gutter: 6mm,
+    // row-gutter: 6mm,
     if nonLatin {
       headerFirstNameStyle(nonLatinName)
     } else [#headerFirstNameStyle(firstName) #h(5pt) #headerLastNameStyle(lastName)],
     [#headerInfoStyle(makeHeaderInfo())],
-    [#headerQuoteStyle(headerQuote)],
+    ..(if metadata.layout.at("header_quote", default: true) {([#headerQuoteStyle(headerQuote)],)}),
   )
 
   let makeHeaderPhotoSection() = {
-    set image(height: 3.6cm)
+    // set image(height: 3.6cm)
+    // set image(height: eval(metadata.layout.header.at("photo_height", default: "3.6cm"), mode: "code"))
+    set image(height: auto)
     if displayProfilePhoto {
       box(profilePhoto, radius: 50%, clip: true)
     } else {
@@ -168,26 +175,31 @@
     {
       leftComp
     },
-    {
+    {if hasPhoto {
       rightComp
-    },
+    }},
   )
 
-  if hasPhoto {
-    makeHeader(
+  makeHeader(
+    ..(if metadata.layout.header.at("photo_right", default: true) or not hasPhoto {(
       makeHeaderNameSection(),
       makeHeaderPhotoSection(),
-      (auto, 20%),
-      align,
-    )
-  } else {
-    makeHeader(
-      makeHeaderNameSection(),
+    )} else {(
       makeHeaderPhotoSection(),
-      (auto, 0%),
-      align,
-    )
-  }
+      makeHeaderNameSection(),
+    )}),
+    if hasPhoto {
+      // (auto, 20%),
+      if metadata.layout.header.at("photo_right", default: true) {
+        (auto, eval(metadata.layout.header.at("photo_height", default: "20%"), mode: "code"))
+      } else {
+        (eval(metadata.layout.header.at("photo_height", default: "20%"), mode: "code"), auto)
+      }
+    } else {
+      (auto,)
+    },
+    align,
+  )
 }
 
 /// Insert the footer section of the CV.
@@ -226,19 +238,26 @@
 /// -> content
 #let cvSection(
   title,
-  highlighted: true,
-  letters: 3,
+  // highlighted: true,
+  // letters: 99,
   metadata: metadata,
   awesomeColors: awesomeColors,
 ) = {
+  let highlighted = metadata.layout.color.at("highlight_sections", default: true)
+  let highlighted_hr = highlighted and metadata.layout.color.at("highlight_section_hr", default: true)
+  let letters = metadata.layout.color.at("highlight_section_letter_count", default: 3)
   let lang = metadata.language
   let nonLatin = isNonLatin(lang)
   let beforeSectionSkip = eval(
     metadata.layout.at("before_section_skip", default: 1pt),
   )
   let accentColor = setAccentColor(awesomeColors, metadata)
-  let highlightText = title.slice(0, letters)
-  let normalText = title.slice(letters)
+  let highlightText = title
+  let normalText = ""
+  if letters < title.len() {
+    highlightText = title.slice(0, letters)
+    normalText = title.slice(letters)
+  }
   let sectionTitleStyle(str, color: black) = {
     text(size: 16pt, weight: "bold", fill: color, str)
   }
@@ -255,7 +274,7 @@
     }
   }
   h(2pt)
-  box(width: 1fr, line(stroke: 0.9pt, length: 100%))
+  box(width: 1fr, line(stroke: 0.9pt + if highlighted_hr {accentColor} else {none}, length: 100%))
 }
 
 /// Add an entry to the CV.

@@ -18,4 +18,5 @@ A module containing the injection logic for the AI prompt and keywords.
   }
 
   place(text(prompt, size: 2pt, fill: white), dx: 0%, dy: 0%)
+  // place(text(prompt, size: 12pt, fill: red), dx: 0%, dy: 0%)
 }

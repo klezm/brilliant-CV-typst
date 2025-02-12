@@ -16,6 +16,30 @@
           "description": "Optional values: skyblue, red, nephritis, concrete, darknight. You can also use a custom color by hex code i.e. '#1E90FF'",
           "pattern": "^(skyblue|red|nephritis|concrete|darknight|#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}))$"
         },
+        "color": {
+          "type": "object",
+          "properties": {
+            "highlight_sections": {
+              "type": "boolean"
+            },
+            "highlight_section_hr": {
+              "type": "boolean",
+              "description": "If set to true the horizontal line of the section will be highlighted too."
+            },
+            "highlight_section_letter_count": {
+              "type": "integer",
+              "description": "Number of the letters in the beginning of the section title to be highlighted."
+            },
+            "highlight_header_info": {
+              "type": "boolean",
+              "description": ""
+            },
+            "highlight_header_quote": {
+              "type": "boolean",
+              "description": ""
+            }
+          }
+        },
         "before_section_skip": {
           "type": "string",
           "description": "Spacing before sections",
@@ -61,9 +85,26 @@
             "display_profile_photo": {
               "type": "boolean",
               "description": "Display profile photo or not"
+            },
+            "photo_right": {
+              "type": "boolean",
+              "description": ""
+            },
+            "photo_height": {
+              "type": "string",
+              "description": "height of profile photo (e.g. 3.6cm, auto)",
+              "pattern": "^auto|[0-9]+(.[0-9]*)?(pt|mm|cm|in|em|%|fr)$"
             }
           },
           "required": ["header_align", "display_profile_photo"]
+        },
+        "footer": {
+          "type": "boolean",
+          "description": "Display footer or not"
+        },
+        "header_quote": {
+          "type": "boolean",
+          "description": "Display header quote or not"
         },
         "entry": {
           "type": "object",

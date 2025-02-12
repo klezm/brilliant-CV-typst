@@ -1,4 +1,6 @@
-#:schema https://raw.githubusercontent.com/mintyfrankie/brilliant-CV/main/metadata.toml.schema.json
+# https://typst.app/universe/package/brilliant-cv
+# #:schema https://raw.githubusercontent.com/mintyfrankie/brilliant-CV/main/metadata.toml.schema.json
+#:schema ../metadata.toml.schema.json
 
 # Set the output language
 # INFO: value must matches folder suffix; i.e "zh" -> "./modules_zh"
@@ -17,23 +19,35 @@ language = "en"
     # Optional: sets paper size and margins. Possible values: a4 (default), us-letter
     paper_size = "a4"
 
+    footer = false
+    header_quote = false
+
+    [layout.color]
+        highlight_sections = true
+        highlight_section_hr = true
+        highlight_section_letter_count = 99
+        highlight_header_info = false
+        # highlight_header_quote = true
+
     [layout.fonts]
-        regular_fonts = ["Source Sans Pro", "Source Sans 3"]
+        regular_fonts = ["Source Sans 3"]
         header_font = "Roboto"
 
     [layout.header]
         # Optional values: left, center, right
-        header_align = "left"
+        header_align = "center"
 
         # Decide if you want to display profile photo or not
         display_profile_photo = true
+        photo_height = "13%" # "2cm" "auto"
+        photo_right = false
 
     [layout.entry]
         # Decide if you want to put your company in bold or your position in bold
         display_entry_society_first = true
 
         # Decide if you want to display organisation logo or not
-        display_logo = true
+        display_logo = false
 
 [inject]
     # Decide if you want to inject AI prompt or not
@@ -55,15 +69,15 @@ language = "en"
         email = "john.doe@me.org"
         linkedin = "johndoe"
         # gitlab = "mintyfrankie"
-        # homepage = "jd.me.org"
+        homepage = "jd.me.org"
         # orcid = "0000-0000-0000-0000"
         # researchgate = "John-Doe"
         # extraInfo = "I am a cool kid"
-        [personal.info.custom-1]
-            # image = "" # Example: image("./path/to/image.png")
-            awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
-            text = "PhD"
-            link = "https://www.example.com"
+        # [personal.info.custom-1]
+        #     # image = "./src/avatar.png" # Example: image("./path/to/image.png")
+        #     awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
+        #     text = "PhD"
+        #     link = "https://www.example.com"
 
 # add a new section if you want to include the language of your choice
 # i.e. [[lang.ru]]
@@ -83,8 +97,8 @@ language = "en"
     cv_footer = "简历"
     letter_footer = "申请信"
 
- # For languages that are not written in Latin script
- # Currently supported non-latin language codes: ("zh", "ja", "ko", "ru")
+# For languages that are not written in Latin script
+# Currently supported non-latin language codes: ("zh", "ja", "ko", "ru")
 [lang.non_latin]
     name = "王道尔"
     font = "Heiti SC"
