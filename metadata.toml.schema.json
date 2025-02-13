@@ -14,50 +14,67 @@
         "awesome_color": {
           "type": "string",
           "description": "Optional values: skyblue, red, nephritis, concrete, darknight. You can also use a custom color by hex code i.e. '#1E90FF'",
+          "default": "skyblue",
           "pattern": "^(skyblue|red|nephritis|concrete|darknight|#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}))$"
         },
         "color": {
           "type": "object",
           "properties": {
-            "highlight_sections": {
-              "type": "boolean"
-            },
-            "highlight_section_hr": {
-              "type": "boolean",
-              "description": "If set to true the horizontal line of the section will be highlighted too."
-            },
-            "highlight_section_letter_count": {
-              "type": "integer",
-              "description": "Number of the letters in the beginning of the section title to be highlighted."
-            },
-            "highlight_header_info": {
-              "type": "boolean",
-              "description": ""
-            },
-            "highlight_header_quote": {
-              "type": "boolean",
-              "description": ""
+            "highlight": {
+              "type": "object",
+              "properties": {
+                "sections": {
+                  "type": "boolean",
+                  "description": "If set to true the first 'section_letter_count' letter in the section titles will be highlighted.",
+                  "default": true
+                },
+                "section_hr": {
+                  "type": "boolean",
+                  "description": "If set to true the horizontal line of the section will be highlighted too.",
+                  "default": false
+                },
+                "section_letter_count": {
+                  "type": "integer",
+                  "description": "Number of the letters in the beginning of the section title to be highlighted.",
+                  "default": 999
+                },
+                "header_info": {
+                  "type": "boolean",
+                  "description": "Highlight personal information in the header",
+                  "default": true
+                },
+                "header_quote": {
+                  "type": "boolean",
+                  "description": "Highlight header quote",
+                  "default": true
+                }
+              },
+              "required": ["sections"]
             }
           }
         },
         "before_section_skip": {
           "type": "string",
           "description": "Spacing before sections",
+          "default": "1pt",
           "pattern": "^[0-9]+pt$"
         },
         "before_entry_skip": {
           "type": "string",
           "description": "Spacing before entries",
+          "default": "1pt",
           "pattern": "^[0-9]+pt$"
         },
         "before_entry_description_skip": {
           "type": "string",
           "description": "Spacing before entry descriptions",
+          "default": "1pt",
           "pattern": "^[0-9]+pt$"
         },
         "paper_size" : {
           "type": "string",
           "description": "Sets paper size and standard marigins, Optional values: us-letter. Default is a4.",
+          "default": "a4",
           "pattern": "^(a4|us-letter|#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}))$"
         },
         "fonts": {
@@ -70,7 +87,8 @@
               }
             },
             "header_font": {
-              "type": "string"
+              "type": "string",
+              "default": "Roboto"
             }
           }
         },
@@ -80,42 +98,50 @@
             "header_align": {
               "type": "string",
               "description": "Optional values: left, center, right",
+              "default": "center",
               "enum": ["left", "center", "right"]
             },
             "display_profile_photo": {
               "type": "boolean",
-              "description": "Display profile photo or not"
+              "description": "Display profile photo or not",
+              "default": true
             },
             "photo_right": {
               "type": "boolean",
-              "description": ""
+              "description": "Display profile photo on the right or left",
+              "default": true
             },
             "photo_height": {
               "type": "string",
               "description": "height of profile photo (e.g. 3.6cm, auto)",
+              "default": "13%",
               "pattern": "^auto|[0-9]+(.[0-9]*)?(pt|mm|cm|in|em|%|fr)$"
             }
           },
-          "required": ["header_align", "display_profile_photo"]
+          "required": ["header_align", "display_profile_photo", "photo_right", "photo_height"]
         },
         "footer": {
           "type": "boolean",
-          "description": "Display footer or not"
+          "description": "Display footer or not",
+          "default": true
         },
         "header_quote": {
           "type": "boolean",
-          "description": "Display header quote or not"
+          "description": "Display header quote or not",
+          "default": true
         },
         "entry": {
           "type": "object",
           "properties": {
             "display_entry_society_first": {
               "type": "boolean",
-              "description": "Display company in bold or position in bold"
+              "description": "Display company in bold or position in bold",
+              "default": true
             },
             "display_logo": {
               "type": "boolean",
-              "description": "Display organisation logo or not"
+              "description": "Display organisation logo or not",
+              "default": true
             }
           },
           "required": ["display_entry_society_first", "display_logo"]
@@ -128,11 +154,13 @@
       "properties": {
         "inject_ai_prompt": {
           "type": "boolean",
-          "description": "Inject AI prompt or not"
+          "description": "Inject AI prompt or not",
+          "default": false
         },
         "inject_keywords": {
           "type": "boolean",
-          "description": "Inject keywords or not"
+          "description": "Inject keywords or not",
+          "default": true
         },
         "injected_keywords_list": {
           "type": "array",
@@ -239,7 +267,23 @@
           "required": ["name", "font"]
         }
       }
+    },
+    "package":{
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "import_path": {
+              "type": "string",
+              "description": "Path to the package. Example: '@preview/brilliant-cv:2.0.4'. If you want to use the package locally, set the path to '/lib.typ'",
+              "default": "@preview/brilliant-cv:2.0.4"
+            }
+          },
+          "required": ["import_path"]
+        }
+      }
     }
   },
-  "required": ["language", "layout", "inject", "personal", "lang"]
+  "required": ["language", "layout", "inject", "personal", "lang", "package"]
 }

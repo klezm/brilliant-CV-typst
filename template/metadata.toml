@@ -22,12 +22,12 @@ language = "en"
     footer = false
     header_quote = false
 
-    [layout.color]
-        highlight_sections = true
-        highlight_section_hr = true
-        highlight_section_letter_count = 99
-        highlight_header_info = false
-        # highlight_header_quote = true
+    [layout.color.highlight]
+        sections = true
+        section_hr = true
+        section_letter_count = 99
+        header_info = false
+        # header_quote = true
 
     [layout.fonts]
         regular_fonts = ["Source Sans 3"]
@@ -102,3 +102,7 @@ language = "en"
 [lang.non_latin]
     name = "王道尔"
     font = "Heiti SC"
+
+[package.config]
+    # import_path = "@preview/brilliant-cv:2.0.4"
+    import_path = "/lib.typ"

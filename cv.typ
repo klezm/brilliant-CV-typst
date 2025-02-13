@@ -63,12 +63,12 @@
   let headerInfoStyle(str) = {
       text(
         size: 8pt,
-        ..(if metadata.layout.color.at("highlight_header_info", default: false) {(fill: accentColor)}),
+        ..(if metadata.layout.color.highlight.at("header_info", default: false) {(fill: accentColor)}),
         str,
       )
   }
   let headerQuoteStyle(str) = {
-    text(size: 10pt, weight: "medium", style: "italic", ..(if metadata.layout.color.at("highlight_header_quote", default: false) {(fill: accentColor)}), str)
+    text(size: 10pt, weight: "medium", style: "italic", ..(if metadata.layout.color.highlight.at("header_quote", default: false) {(fill: accentColor)}), str)
   }
 
   // Components
@@ -243,9 +243,9 @@
   metadata: metadata,
   awesomeColors: awesomeColors,
 ) = {
-  let highlighted = metadata.layout.color.at("highlight_sections", default: true)
-  let highlighted_hr = highlighted and metadata.layout.color.at("highlight_section_hr", default: true)
-  let letters = metadata.layout.color.at("highlight_section_letter_count", default: 3)
+  let highlighted = metadata.layout.color.highlight.at("sections", default: true)
+  let highlighted_hr = highlighted and metadata.layout.color.highlight.at("section_hr", default: true)
+  let letters = metadata.layout.color.highlight.at("section_letter_count", default: 3)
   let lang = metadata.language
   let nonLatin = isNonLatin(lang)
   let beforeSectionSkip = eval(

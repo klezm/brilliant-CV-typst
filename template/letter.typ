@@ -1,7 +1,7 @@
 // Imports
-#import "@preview/brilliant-cv:2.0.4": letter
 #let metadata = toml("./metadata.toml")
-
+// #import "@preview/brilliant-cv:2.0.4": letter
+#import metadata.package.config.import_path: letter
 
 #show: letter.with(
   metadata,

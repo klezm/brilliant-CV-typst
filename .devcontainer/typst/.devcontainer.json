@@ -1,6 +1,6 @@
 {
   "image": "ghcr.io/jmuchovej/devcontainers/typst:latest",
-  "name": "Typst",
+  "name": "Typst (jmuchovej)",
   // "workspaceFolder": "/workspace",
 
   "customizations": {

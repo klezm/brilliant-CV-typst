@@ -1,7 +1,7 @@
 // Imports
-// #import "@preview/brilliant-cv:2.0.4": cvSection, cvEntry, hBar
-#import "../../lib.typ": cvSection, cvEntry, hBar
 #let metadata = toml("../metadata.toml")
+// #import "@preview/brilliant-cv:2.0.4": cvSection, cvEntry, hBar
+#import metadata.package.config.import_path: cvSection, cvEntry, hBar
 #let cvSection = cvSection.with(metadata: metadata)
 #let cvEntry = cvEntry.with(metadata: metadata)
 
