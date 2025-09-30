@@ -1,0 +1,64 @@
+# CV 数据示例 (YAML 格式 - 中文)
+# 此文件演示了从 YAML 数据自动生成简历的结构
+
+education:
+  - title: 数据科学硕士
+    society: 加利福尼亚大学洛杉矶分校
+    date: 2018 - 2020
+    location: 美国
+    logo: ./src/logos/ucla.png
+    description:
+      - "论文: 使用机器学习算法和网络分析预测电信行业的客户流失"
+      - "课程: 大数据系统与技术 | 数据挖掘与探索 | 自然语言处理"
+  
+  - title: 计算机科学学士
+    society: 加利福尼亚大学洛杉矶分校
+    date: 2014 - 2018
+    location: 美国
+    logo: ./src/logos/ucla.png
+    description:
+      - "论文: 探索使用机器学习算法预测股票价格: 回归与时间序列模型的比较研究"
+      - "课程: 数据库系统 | 计算机网络 | 软件工程 | 人工智能"
+
+professional:
+  - title: 数据科学主管
+    society: XYZ 公司
+    date: 2020 - 现在
+    location: 旧金山, CA
+    logo: ./src/logos/xyz_corp.png
+    description:
+      - 领导数据科学家和分析师团队，开发和实施数据驱动的策略，开发预测模型和算法以支持组织内部的决策
+      - 与高级管理团队合作，确定商业机会并推动增长，实施数据治理、质量和安全的最佳实践
+    tags:
+      - 标签示例
+      - Dataiku
+      - Snowflake
+      - SparkSQL
+  
+  - title: 数据分析师
+    society: ABC 公司
+    date: 2017 - 2020
+    location: 纽约, NY
+    logo: ./src/logos/abc_company.png
+    description:
+      - 使用 SQL 和 Python 分析大型数据集，与团队合作发现商业洞见
+      - 使用 Tableau 创建数据可视化和仪表板，使用 AWS 开发和维护数据管道
+
+projects:
+  - title: 志愿数据分析师
+    society: ABC 非营利组织
+    date: 2019 - 现在
+    location: 纽约, NY
+    description:
+      - 分析捐赠者和筹款数据以识别增长的趋势和机会
+      - 创建数据可视化和仪表板以向董事会传达洞见
+
+skills:
+  - type: 语言
+    info: 英语 | 法语 | 中文
+  
+  - type: 技术栈
+    info: Tableau | Python (Pandas/Numpy) | PostgreSQL
+  
+  - type: 个人兴趣
+    info: 游泳 | 烹饪 | 阅读

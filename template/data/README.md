@@ -6,13 +6,25 @@ This directory contains YAML data files for automatically generating CVs.
 
 To use YAML-based CV generation:
 
-1. Edit `cv.yaml` with your personal information and CV entries
-2. Instead of using `cv.typ`, use `cv-from-yaml.typ` as your main document
-3. Compile with: `typst compile cv-from-yaml.typ`
+1. Edit the appropriate YAML file for your language:
+   - `cv.yaml` for English
+   - `cv-fr.yaml` for French
+   - `cv-zh.yaml` for Chinese
+
+2. Set the language in `metadata.toml`:
+   ```toml
+   language = "en"  # or "fr" or "zh"
+   ```
+
+3. Instead of using `cv.typ`, use `cv-from-yaml.typ` as your main document
+
+4. Compile with: `typst compile cv-from-yaml.typ`
+
+The YAML file will be automatically selected based on your language setting in `metadata.toml`.
 
 ## YAML Structure
 
-The `cv.yaml` file supports the following sections:
+The YAML files support the following sections:
 
 ### Education
 ```yaml

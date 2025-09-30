@@ -10,11 +10,20 @@
 // Import YAML rendering utilities
 #import "../utils/yaml-cv.typ": renderEducation, renderProfessional, renderProjects, renderSkills, renderPublications, renderCertificates
 
+// Determine which YAML file to load based on language
+#let lang = metadata.language
+#let yamlFile = if lang == "fr" {
+  "./data/cv-fr.yaml"
+} else if lang == "zh" {
+  "./data/cv-zh.yaml"
+} else {
+  "./data/cv.yaml"  // Default to English
+}
+
 // Load CV data from YAML
-#let cvData = yaml("./data/cv.yaml")
+#let cvData = yaml(yamlFile)
 
 // Get localized section titles based on language
-#let lang = metadata.language
 #let sectionTitles = if lang == "en" {
   (
     education: "Education",
