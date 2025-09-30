@@ -105,4 +105,4 @@ language = "en"
 
 [package.config]
     # import_path = "@preview/brilliant-cv:2.0.4"
-    import_path = "/lib.typ"
+    import_path = "@preview/brilliant-cv:2.0.4"
