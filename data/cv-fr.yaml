@@ -1,0 +1,64 @@
+# Exemple de données CV en format YAML (Français)
+# Ce fichier démontre la structure pour générer automatiquement un CV à partir de données YAML
+
+education:
+  - title: Master en Science des Données
+    society: Université de Californie à Los Angeles
+    date: 2018 - 2020
+    location: USA
+    logo: ./src/logos/ucla.png
+    description:
+      - "Thèse : Prédiction du taux de désabonnement des clients dans l'industrie des télécommunications en utilisant des algorithmes d'apprentissage automatique et l'analyse de réseau"
+      - "Cours : Systèmes et technologies Big Data | Exploration et exploitation de données | Traitement du langage naturel"
+  
+  - title: Bachelors en Informatique
+    society: Université de Californie à Los Angeles
+    date: 2014 - 2018
+    location: USA
+    logo: ./src/logos/ucla.png
+    description:
+      - "Thèse : Exploration de l'utilisation des algorithmes d'apprentissage automatique pour la prédiction des prix des actions : une étude comparative des modèles de régression et de séries chronologiques"
+      - "Cours : Systèmes de base de données | Réseaux informatiques | Génie logiciel | Intelligence artificielle"
+
+professional:
+  - title: Directeur de la Science des Données
+    society: XYZ Corporation
+    date: 2020 - Présent
+    location: San Francisco, CA
+    logo: ./src/logos/xyz_corp.png
+    description:
+      - Diriger une équipe de scientifiques et d'analystes de données pour développer et mettre en œuvre des stratégies basées sur les données, développer des modèles prédictifs et des algorithmes pour soutenir la prise de décision dans l'organisation
+      - Collaborer avec la direction exécutive pour identifier les opportunités commerciales et stimuler la croissance, mettre en œuvre les meilleures pratiques pour la gouvernance, la qualité et la sécurité des données
+    tags:
+      - Exemple de tags
+      - Dataiku
+      - Snowflake
+      - SparkSQL
+  
+  - title: Analyste de Données
+    society: ABC Company
+    date: 2017 - 2020
+    location: New York, NY
+    logo: ./src/logos/abc_company.png
+    description:
+      - Analyser de grands ensembles de données avec SQL et Python, collaborer avec des équipes pour découvrir des insights commerciaux
+      - Créer des visualisations de données et des tableaux de bord dans Tableau, développer et maintenir des pipelines de données avec AWS
+
+projects:
+  - title: Analyste de Données Bénévole
+    society: Organisation ABC à but non lucratif
+    date: 2019 - Présent
+    location: New York, NY
+    description:
+      - Analyser les données des donateurs et de la collecte de fonds pour identifier les tendances et les opportunités de croissance
+      - Créer des visualisations de données et des tableaux de bord pour communiquer les insights au conseil d'administration
+
+skills:
+  - type: Langues
+    info: Anglais | Français | Chinois
+  
+  - type: Technologies
+    info: Tableau | Python (Pandas/Numpy) | PostgreSQL
+  
+  - type: Intérêts personnels
+    info: Natation | Cuisine | Lecture
