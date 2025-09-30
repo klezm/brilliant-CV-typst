@@ -30,6 +30,10 @@
 
 > Fight against the abuse of ATS system or GenAI screening by injecting invisible AI prompt or keyword list automatically.
 
+***(NEW)* 5. YAML-based CV Generation**
+
+> Optionally generate your CV from a structured YAML data file instead of manually editing `.typ` modules - perfect for programmatic CV generation while keeping the manual approach available for full control.
+
 ## Preview
 
 |                                                    CV                                                    |                                                    Cover Letter                                                    |
@@ -85,6 +89,32 @@ You will have to take care of templating by yourself, though.
 
 Adapt the `metadata.toml` to suit your needs, then `typst c cv.typ` to get your first CV!
 
+#### 4.1 Traditional Module-based Approach (Default)
+
+The default approach uses manual `.typ` module files in the `modules_*` directories. Edit the modules for each language/section with your CV content:
+
+```bash
+typst c cv.typ
+```
+
+#### 4.2 YAML-based Approach (Alternative)
+
+For an automated approach, you can generate your CV from YAML data:
+
+1. Edit `data/cv.yaml` with your CV content
+2. Use the YAML-based entry point:
+
+```bash
+typst c cv-from-yaml.typ
+```
+
+The YAML approach is ideal when:
+- You want to manage CV data in a structured format
+- You need programmatic generation or integration with other tools
+- You prefer data-driven content management
+
+Both approaches produce identical output and can coexist in the same project.
+
 ### 5. Beyond
 
 It is recommended to:
@@ -103,6 +133,52 @@ For the time being, upgrade can be achieved by manually "find and replace" the i
 ```
 
 **Make sure you read the release notes to notice any breaking changes. We estimate that there would still be some as Typst has not reached to a stable release neither.**
+
+## YAML Data Structure (Optional)
+
+If you choose the YAML-based approach, your `data/cv.yaml` file should follow this structure:
+
+```yaml
+education:
+  - title: Degree Name
+    society: Institution Name
+    date: Start - End
+    location: Location
+    logo: ./src/logos/institution.png  # Optional
+    description:
+      - Description line 1
+      - Description line 2
+
+professional:
+  - title: Job Title
+    society: Company Name
+    date: Start - End
+    location: Location
+    logo: ./src/logos/company.png  # Optional
+    description:
+      - Responsibility 1
+      - Responsibility 2
+    tags:  # Optional
+      - Tag1
+      - Tag2
+
+projects:
+  - title: Project Title
+    society: Organization
+    date: Date Range
+    location: Location
+    description:
+      - Achievement 1
+      - Achievement 2
+
+skills:
+  - type: Skill Category
+    info: Skill1 | Skill2 | Skill3
+```
+
+**Note:** Use `|` (pipe) as a separator in descriptions and skills - it will be automatically converted to the proper visual separator.
+
+See `data/cv.yaml` and `template/data/README.md` for complete examples and documentation.
 
 ## Migration from `v1`
 
