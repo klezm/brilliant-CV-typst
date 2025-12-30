@@ -30,6 +30,10 @@
 
 > Fight against the abuse of ATS system or GenAI screening by injecting invisible AI prompt or keyword list automatically.
 
+***(NEW)* 5. YAML-based CV Generation**
+
+> Generate your CV from a single YAML file (`cv.yaml`) without editing `.typ` files. Perfect for users who want a simpler workflow or prefer structured data formats.
+
 ## Preview
 
 |                                                    CV                                                    |                                                    Cover Letter                                                    |
@@ -84,6 +88,48 @@ You will have to take care of templating by yourself, though.
 ### 4. Compile Files
 
 Adapt the `metadata.toml` to suit your needs, then `typst c cv.typ` to get your first CV!
+
+#### 4.1 YAML-based CV Generation (NEW)
+
+For a simpler workflow, you can now generate your CV from a YAML file instead of editing individual `.typ` module files:
+
+1. Edit `cv.yaml` with your CV data (education, professional experience, skills, etc.)
+2. Run `typst c cv_yaml.typ` to compile your CV
+
+The YAML approach offers:
+- **Single file editing**: All your CV content in one file
+- **Easy version control**: Track changes to your CV data in a structured format
+- **No Typst knowledge required**: Just edit the YAML file
+
+Example `cv.yaml` structure:
+```yaml
+education:
+  - title: "Master of Data Science"
+    society: "University Name"
+    date: "2018 - 2020"
+    location: "USA"
+    description:
+      - "Thesis: Your thesis title"
+      - "Courses: Course 1 | Course 2"
+
+professional:
+  - title: "Job Title"
+    society: "Company Name"
+    date: "2020 - Present"
+    location: "City, State"
+    description:
+      - "Achievement 1"
+      - "Achievement 2"
+    tags:
+      - "Skill1"
+      - "Skill2"
+
+skills:
+  - type: "Languages"
+    info: "English | French | Chinese"
+```
+
+The traditional module-based approach (`cv.typ` with `modules_en/*.typ`) is still fully supported for users who prefer more control over layout and formatting.
 
 ### 5. Beyond
 

@@ -7,6 +7,7 @@
 #import "./letter.typ": *
 #import "./utils/lang.typ": isNonLatin
 #import "./utils/styles.typ": overwriteFonts
+#import "./utils/yaml_loader.typ": loadEntries, loadHonors, loadSkills, loadYamlCV
 
 /* Layout */
 #let cv(

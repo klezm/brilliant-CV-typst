@@ -1,0 +1,102 @@
+# CV Data in YAML format
+# This file can be used to automatically generate a CV without editing .typ files
+# Dates should be strings (e.g., "2020 - Present", "Summer 2017")
+
+education:
+  - title: "Master of Data Science"
+    society: "University of California, Los Angeles"
+    date: "2018 - 2020"
+    location: "USA"
+    logo: "src/logos/ucla.png"
+    description:
+      - "Thesis: Predicting Customer Churn in Telecommunications Industry using Machine Learning Algorithms and Network Analysis"
+      - "Course: Big Data Systems and Technologies | Data Mining and Exploration | Natural Language Processing"
+
+  - title: "Bachelors of Science in Computer Science"
+    society: "University of California, Los Angeles"
+    date: "2018 - 2020"
+    location: "USA"
+    logo: "src/logos/ucla.png"
+    description:
+      - "Thesis: Exploring the Use of Machine Learning Algorithms for Predicting Stock Prices: A Comparative Study of Regression and Time-Series Models"
+      - "Course: Database Systems | Computer Networks | Software Engineering | Artificial Intelligence"
+
+professional:
+  - title: "Director of Data Science"
+    society: "XYZ Corporation"
+    date: "2020 - Present"
+    location: "San Francisco, CA"
+    logo: "src/logos/xyz_corp.png"
+    description:
+      - "Lead a team of data scientists and analysts to develop and implement data-driven strategies, develop predictive models and algorithms to support decision-making across the organization"
+      - "Collaborate with executive leadership to identify business opportunities and drive growth, implement best practices for data governance, quality, and security"
+    tags:
+      - "Tags Example here"
+      - "Dataiku"
+      - "Snowflake"
+      - "SparkSQL"
+
+  - title: "Data Analyst"
+    society: "ABC Company"
+    date: "2017 - 2020"
+    location: "New York, NY"
+    logo: "src/logos/abc_company.png"
+    description:
+      - "Analyze large datasets with SQL and Python, collaborate with teams to uncover business insights"
+      - "Create data visualizations and dashboards in Tableau, develop and maintain data pipelines with AWS"
+
+  - title: "Data Analysis Intern"
+    society: "PQR Corporation"
+    date: "Summer 2017"
+    location: "Chicago, IL"
+    logo: "src/logos/pqr_corp.png"
+    description:
+      - "Assisted with data cleaning, processing, and analysis using Python and Excel, participated in team meetings and contributed to project planning and execution"
+
+projects:
+  - title: "Volunteer Data Analyst"
+    society: "ABC Nonprofit Organization"
+    date: "2019 - Present"
+    location: "New York, NY"
+    description:
+      - "Analyze donor and fundraising data to identify trends and opportunities for growth"
+      - "Create data visualizations and dashboards to communicate insights to the board of directors"
+      - "Collaborate with other volunteers to develop and implement data-driven strategies"
+
+certificates:
+  - date: "2022"
+    title: "AWS Certified Security"
+    issuer: "Amazon Web Services (AWS)"
+    url: ""
+    location: ""
+
+  - date: "2017"
+    title: "Applied Data Science with Python"
+    issuer: "Coursera"
+    url: ""
+    location: ""
+
+  - date: ""
+    title: "SQL Fundamentals Track"
+    issuer: "Datacamp"
+    url: ""
+    location: ""
+
+skills:
+  - type: "Languages"
+    info: "English | French | Chinese"
+
+  - type: "Tech Stack"
+    info: "Tableau | Python (Pandas/Numpy) | PostgreSQL"
+
+  - type: "Personal Interests"
+    info: "Swimming | Cooking | Reading"
+
+publications:
+  bib_path: "src/publications.bib"
+  keys:
+    - "smith2020"
+    - "jones2021"
+    - "wilson2022"
+  style: "apa"
+  full: true
