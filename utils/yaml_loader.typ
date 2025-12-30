@@ -78,7 +78,7 @@
 }
 
 /// Load all CV sections from a YAML file.
-/// Returns a dictionary with loader functions for each section.
+/// Returns the raw YAML data as a dictionary.
 ///
 /// - yamlPath (string): Path to the YAML file.
 /// -> dictionary
